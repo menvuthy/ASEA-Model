@@ -1,0 +1,7 @@
+folium
+rasterio
+rtree
+geopandas
+geemap
+mapclassify
+contextily
