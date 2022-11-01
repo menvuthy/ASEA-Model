@@ -50,8 +50,9 @@ red = normalized_rescale[2]
 green = normalized_rescale[3]
 blue = normalized_rescale[4]
 
-# Create RGB natural color composite
+# Create RGB and SNB composite
 RGB = np.dstack((red, green, blue))
+SNB = np.dstack((swir, nir, blue))
 
 # Separate water and non-water by K-Means
 Input_DF = pd.DataFrame({'NIR': nir.reshape(-1)})
@@ -125,6 +126,7 @@ for i in range(len(list_poly)):
 
 # Create new geodataframe for exterior boundaries
 geo_shoreline = gpd.GeoDataFrame({'geometry':smooth_poly}, crs=Image.crs)
+geo_shoreline = geo_shoreline.dropna().reset_index(drop=True)
 geo_shoreline['id'] = geo_shoreline.index
 
 # Save to geojson file
@@ -132,12 +134,15 @@ outfp = 'output/shoreline/geojson/shoreline_'+date[0][:4]+'.json'
 geo_shoreline.to_file(outfp, driver='GeoJSON')
 
 # Create plot
-fig, (axr, axg, axb) = plt.subplots(1,3, figsize=(20,7))
-show(RGB.transpose(2, 0, 1), ax=axr, transform=transform, title='True color')
-show(nir, ax=axg, cmap='gray', transform=transform, title='NIR channel')
-show(mask, ax=axb, cmap='gray', transform=transform)
-geo_shoreline.plot(ax=axb, facecolor='None', edgecolor='red', linewidth=1.5)
-axb.set_title('Shoreline', fontweight='bold')
+fig, (ax1, ax2, ax3, ax4) = plt.subplots(1,4, figsize=(20,7))
+show(RGB.transpose(2, 0, 1), ax=ax1, transform=transform, title='True color')
+show(RGB.transpose(2, 0, 1), ax=ax2, transform=transform, title='True color')
+ax2.set_title('Shoreline', fontweight='bold')
+geo_shoreline.plot(ax=ax2, facecolor='None', edgecolor='yellow', linewidth=1.2)
+show(SNB.transpose(2, 0, 1), ax=ax3, cmap='gray', transform=transform, title='False color')
+show(SNB.transpose(2, 0, 1), ax=ax4, cmap='gray', transform=transform)
+geo_shoreline.plot(ax=ax4, facecolor='None', edgecolor='white', linewidth=1.2)
+ax4.set_title('Shoreline', fontweight='bold')
 plt.tight_layout()
 plt.savefig('output/shoreline/plot/plot_'+date[0][:4]+'.png', dpi=300)
 

@@ -20,8 +20,8 @@ shl_past = gpd.read_file(shoreline_fp[0])
 shl_present = gpd.read_file(shoreline_fp[-1])
 
 # Calculate growth and retreat
-retreat = gpd.overlay(shl_past, shl_present, how='difference')
-growth = gpd.overlay(shl_present, shl_past, how='difference')
+retreat = gpd.overlay(shl_past, shl_present, how='difference', keep_geom_type=False)
+growth = gpd.overlay(shl_present, shl_past, how='difference', keep_geom_type=False)
 
 # Export growth and retreat geometry to GeoJSON
 retreat.to_file('output/retreat&growth/retreat.json', driver='GeoJSON')
@@ -63,8 +63,8 @@ for i in range(len(shoreline_fp)):
 
 # Create a list of shoreline year
 year = []
-for i in (range(int(shoreline_fp[0][-9:-5]), int(shoreline_fp[-1][-9:-5])+1)):
-  year.append(i)
+for name in shoreline_fp:
+  year.append(name[-9:-5])
 
 # Export union shoreline to GeoJSON
 geo_shoreline = gpd.GeoDataFrame({'geometry':shape_list}, crs=shl_present.crs)

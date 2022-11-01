@@ -2,16 +2,31 @@ import ee
 ee.Initialize()
 
 
-#------ Parameter Setting ------#
-# 1. Area of interest - format created from Google Earth Engine
-# Set area of interest via Google Earth Engine Code Editor:
-# https://code.earthengine.google.com
-# ***Note: always change from null to None, and false to False
-aoi =  ee.Geometry.Polygon(
-        [[[103.49855114029242, 10.61440439559403],
-          [103.49855114029242, 10.599471949016321],
-          [103.52430034683539, 10.599471949016321],
-          [103.52430034683539, 10.61440439559403]]], None, False);
+####################### Shoreline Analysis Parameters #################
+
+# 1. Area of interest
+# Note: always change from null to None, and false to False
+aoi =  ee.Geometry.Polygon(                             
+        [[[-87.18205026797695, 12.480616394046926],
+          [-87.17724374942226, 12.480700196471812],
+          [-87.17793039493007, 12.488074703600505],
+          [-87.17956117801113, 12.493437849484708],
+          [-87.18247942141933, 12.498381901061824],
+          [-87.18874506167812, 12.50508554875997],
+          [-87.1932082574789, 12.511621437784505],
+          [-87.20110468081874, 12.517319257335073],
+          [-87.20556787661953, 12.515475858890516],
+          [-87.19895891360683, 12.50835351394752],
+          [-87.19269327334804, 12.502823087104646],
+          [-87.18780092410488, 12.496538367460703],
+          [-87.18462518863124, 12.489499300072348],
+          [-87.18282274417324, 12.484136072531042]]]); 
 
 # 2. Start date and end date
-date = ['2022-01-01', '2022-12-31']
+date = ['2020-01-01', '2020-12-31']     
+
+# 3. Scheme bins for total shoreline change
+bins_tsc = [-100, -50, -25, -10, 0, 10, 25, 50, 100]  
+
+# 4. Scheme bins for shoreline change rate per year
+bins_rpy = [-10, -7.5, -5, -2.5, 0, 2.5, 5, 7.5, 10]    
