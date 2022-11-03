@@ -7,6 +7,16 @@ from codes.shoreline import Create_points, ExtrapolateOut, ExtrapolateIn
 from codes.shoreline import create_union_polygon, create_shoreline_change_points
 from codes.shoreline import merge_shoreline_change
 
+# Create folder
+if not os.path.exists('output/shoreline/retreat&growth'):
+  os.makedirs('output/shoreline/retreat&growth')
+  
+if not os.path.exists('output/shoreline/shoreline-change'):
+  os.makedirs('output/shoreline/shoreline-change')
+
+if not os.path.exists('output/shoreline/union-shoreline'):
+  os.makedirs('output/shoreline/union-shoreline')
+
 # File and folder paths
 file_path = "output/shoreline/geojson"
 
@@ -16,16 +26,16 @@ q = os.path.join(file_path, "shoreline_*.json")
 shoreline_fp = natsort.natsorted(glob.glob(q)) # sorted files by name
 
 # import shoreline data
-shl_past = gpd.read_file(shoreline_fp[0])
-shl_present = gpd.read_file(shoreline_fp[-1])
+shl_past = gpd.read_file(shoreline_fp[0]).dropna().reset_index(drop=True)
+shl_present = gpd.read_file(shoreline_fp[-1]).dropna().reset_index(drop=True)
 
 # Calculate growth and retreat
 retreat = gpd.overlay(shl_past, shl_present, how='difference', keep_geom_type=False)
 growth = gpd.overlay(shl_present, shl_past, how='difference', keep_geom_type=False)
 
 # Export growth and retreat geometry to GeoJSON
-retreat.to_file('output/retreat&growth/retreat.json', driver='GeoJSON')
-growth.to_file('output/retreat&growth/growth.json', driver='GeoJSON')
+retreat.to_file('output/shoreline/retreat&growth/retreat.json', driver='GeoJSON')
+growth.to_file('output/shoreline/retreat&growth/growth.json', driver='GeoJSON')
 
 # Create union polygon from geodata of growth area 
 growth_poly = create_union_polygon(growth)
@@ -38,8 +48,8 @@ growth_shoreline_change = create_shoreline_change_points(shl_present, growth_pol
 retreat_shoreline_change = create_shoreline_change_points(shl_present, retreat_poly)
 
 # Export shoreline growth and retreat to GeoJSON
-growth_shoreline_change.to_file('output/retreat&growth/growth_points.json', driver='GeoJSON')
-retreat_shoreline_change.to_file('output/retreat&growth/retreat_points.json', driver='GeoJSON')
+growth_shoreline_change.to_file('output/shoreline/retreat&growth/growth_points.json', driver='GeoJSON')
+retreat_shoreline_change.to_file('output/shoreline/retreat&growth/retreat_points.json', driver='GeoJSON')
 
 
 # Calculate total year
@@ -57,7 +67,7 @@ shoreline_change.to_file('output/shoreline/shoreline-change/shoreline_change.jso
 # Create a combination of all shorelines
 shape_list = []
 for i in range(len(shoreline_fp)):
-  shoreline = gpd.read_file(shoreline_fp[i])
+  shoreline = gpd.read_file(shoreline_fp[i]).dropna().reset_index(drop=True)
   geo_shoreline = unary_union(shoreline['geometry'].exterior)
   shape_list.append(geo_shoreline)
 

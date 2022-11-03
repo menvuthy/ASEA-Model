@@ -12,6 +12,19 @@ import warnings
 warnings.filterwarnings("ignore")
 from parameters import bins_tsc, bins_rpy
 
+# Create folder
+if not os.path.exists('output/shoreline/map/static/total_change'):
+  os.makedirs('output/shoreline/map/static/total_change')
+  
+if not os.path.exists('output/shoreline/map/static/rate_per_year'):
+  os.makedirs('output/shoreline/map/static/rate_per_year')
+
+if not os.path.exists('output/shoreline/map/static/yearly_shoreline'):
+  os.makedirs('output/shoreline/map/static/yearly_shoreline')
+
+if not os.path.exists('output/shoreline/map/interactive'):
+  os.makedirs('output/shoreline/map/interactive')
+
 
 # File and folder paths
 file_path = "output/shoreline/geojson"
@@ -72,9 +85,9 @@ Shoreline_change.plot(ax=ax,
           legend_kwds={'loc': 'best'}
           )
 
-plt.xlabel('Longitude', fontsize=12)
-plt.ylabel('Latitude', fontsize=12)
-plt.title('Total shoreline change from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=12)
+plt.xlabel('Longitude', fontsize=14)
+plt.ylabel('Latitude', fontsize=14)
+plt.title('Total shoreline change from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=16)
 plt.tight_layout()
 plt.savefig('output/shoreline/map/static/total_change/total_shoreline_change_NIR.png', dpi=300)
 
@@ -95,9 +108,9 @@ shoreline_change.plot(ax=ax,
 # Add basemap
 ctx.add_basemap(ax, source='https://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png')
 
-plt.xlabel('Longitude', fontsize=12)
-plt.ylabel('Latitude', fontsize=12)
-plt.title('Total shoreline change from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=12)
+plt.xlabel('Longitude', fontsize=14)
+plt.ylabel('Latitude', fontsize=14)
+plt.title('Total shoreline change from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=16)
 plt.tight_layout()
 plt.savefig('output/shoreline/map/static/total_change/total_shoreline_change_OSM.png', dpi=300)
 
@@ -118,9 +131,9 @@ shoreline_change.plot(ax=ax,
 # Add basemap
 ctx.add_basemap(ax, source=providers['CartoDB.Positron'])
 
-plt.xlabel('Longitude', fontsize=12)
-plt.ylabel('Latitude', fontsize=12)
-plt.title('Total shoreline change from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=12)
+plt.xlabel('Longitude', fontsize=14)
+plt.ylabel('Latitude', fontsize=14)
+plt.title('Total shoreline change from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=16)
 plt.tight_layout()
 plt.savefig('output/shoreline/map/static/total_change/total_shoreline_change_Positron.png', dpi=300)
 
@@ -141,9 +154,9 @@ shoreline_change.plot(ax=ax,
 # Add basemap
 ctx.add_basemap(ax, source=providers['CartoDB.DarkMatter'])
 
-plt.xlabel('Longitude', fontsize=12)
-plt.ylabel('Latitude', fontsize=12)
-plt.title('Total shoreline change from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=12)
+plt.xlabel('Longitude', fontsize=14)
+plt.ylabel('Latitude', fontsize=14)
+plt.title('Total shoreline change from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=16)
 plt.tight_layout()
 plt.savefig('output/shoreline/map/static/total_change/total_shoreline_change_DarkMatter.png', dpi=300)
 
@@ -164,9 +177,9 @@ shoreline_change.plot(ax=ax,
 # Add basemap
 ctx.add_basemap(ax, source=providers['Esri.WorldImagery'])
 
-plt.xlabel('Longitude', fontsize=12)
-plt.ylabel('Latitude', fontsize=12)
-plt.title('Total shoreline change from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=12)
+plt.xlabel('Longitude', fontsize=14)
+plt.ylabel('Latitude', fontsize=14)
+plt.title('Total shoreline change from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=16)
 plt.tight_layout()
 plt.savefig('output/shoreline/map/static/total_change/total_shoreline_change_Esri.png', dpi=300)
 
@@ -186,9 +199,9 @@ shoreline_change.plot(ax=ax,
           legend_kwds={'loc': 'best'}
           )
 
-plt.xlabel('Longitude', fontsize=12)
-plt.ylabel('Latitude', fontsize=12)
-plt.title('Shoreline change rate per year from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=12)
+plt.xlabel('Longitude', fontsize=14)
+plt.ylabel('Latitude', fontsize=14)
+plt.title('Shoreline change rate per year from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=16)
 plt.tight_layout()
 plt.savefig('output/shoreline/map/static/rate_per_year/shoreline_change_rate.png', dpi=300)
 
@@ -206,9 +219,9 @@ Shoreline_change.plot(ax=ax,
           legend_kwds={'loc': 'best'}
           )
 
-plt.xlabel('Longitude', fontsize=12)
-plt.ylabel('Latitude', fontsize=12)
-plt.title('Shoreline change rate per year from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=12)
+plt.xlabel('Longitude', fontsize=14)
+plt.ylabel('Latitude', fontsize=14)
+plt.title('Shoreline change rate per year from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=16)
 plt.tight_layout()
 plt.savefig('output/shoreline/map/static/rate_per_year/shoreline_change_rate_NIR.png', dpi=300)
 
@@ -229,9 +242,9 @@ shoreline_change.plot(ax=ax,
 # Add basemap
 ctx.add_basemap(ax, source='https://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png')
 
-plt.xlabel('Longitude', fontsize=12)
-plt.ylabel('Latitude', fontsize=12)
-plt.title('Shoreline change rate per year from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=12)
+plt.xlabel('Longitude', fontsize=14)
+plt.ylabel('Latitude', fontsize=14)
+plt.title('Shoreline change rate per year from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=16)
 plt.tight_layout()
 plt.savefig('output/shoreline/map/static/rate_per_year/shoreline_change_rate_OSM.png', dpi=300)
 
@@ -252,9 +265,9 @@ shoreline_change.plot(ax=ax,
 # Add basemap
 ctx.add_basemap(ax, source=providers['CartoDB.Positron'])
 
-plt.xlabel('Longitude', fontsize=12)
-plt.ylabel('Latitude', fontsize=12)
-plt.title('Shoreline change rate per year from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=12)
+plt.xlabel('Longitude', fontsize=14)
+plt.ylabel('Latitude', fontsize=14)
+plt.title('Shoreline change rate per year from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=16)
 plt.tight_layout()
 plt.savefig('output/shoreline/map/static/rate_per_year/shoreline_change_rate_Positron.png', dpi=300)
 
@@ -275,9 +288,9 @@ shoreline_change.plot(ax=ax,
 # Add basemap
 ctx.add_basemap(ax, source=providers['CartoDB.DarkMatter'])
 
-plt.xlabel('Longitude', fontsize=12)
-plt.ylabel('Latitude', fontsize=12)
-plt.title('Shoreline change rate per year from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=12)
+plt.xlabel('Longitude', fontsize=14)
+plt.ylabel('Latitude', fontsize=14)
+plt.title('Shoreline change rate per year from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=16)
 plt.tight_layout()
 plt.savefig('output/shoreline/map/static/rate_per_year/shoreline_change_rate_DarkMatter.png', dpi=300)
 
@@ -298,9 +311,9 @@ shoreline_change.plot(ax=ax,
 # Add basemap
 ctx.add_basemap(ax, source=providers['Esri.WorldImagery'])
 
-plt.xlabel('Longitude', fontsize=12)
-plt.ylabel('Latitude', fontsize=12)
-plt.title('Shoreline change rate per year from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=12)
+plt.xlabel('Longitude', fontsize=14)
+plt.ylabel('Latitude', fontsize=14)
+plt.title('Shoreline change rate per year from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5]+' (meter)', fontsize=16)
 plt.tight_layout()
 plt.savefig('output/shoreline/map/static/rate_per_year/shoreline_change_rate_Esri.png', dpi=300)
 
@@ -320,9 +333,9 @@ union_shoreline.plot(ax=ax,
           legend_kwds={'loc': 'best'}
           )
 
-plt.xlabel('Longitude', fontsize=12)
-plt.ylabel('Latitude', fontsize=12)
-plt.title('Shorelines from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5], fontsize=12)
+plt.xlabel('Longitude', fontsize=14)
+plt.ylabel('Latitude', fontsize=14)
+plt.title('Shorelines from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5], fontsize=16)
 plt.tight_layout()
 plt.savefig('output/shoreline/map/static/yearly_shoreline/shorelines.png', dpi=300)
 
@@ -340,9 +353,9 @@ Union_shoreline.plot(ax=ax,
           legend_kwds={'loc': 'best'}
           )
 
-plt.xlabel('Longitude', fontsize=12)
-plt.ylabel('Latitude', fontsize=12)
-plt.title('Shorelines from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5], fontsize=12)
+plt.xlabel('Longitude', fontsize=14)
+plt.ylabel('Latitude', fontsize=14)
+plt.title('Shorelines from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5], fontsize=16)
 plt.tight_layout()
 plt.savefig('output/shoreline/map/static/yearly_shoreline/shorelines_NIR.png', dpi=300)
 
@@ -364,9 +377,9 @@ union_shoreline.plot(ax=ax,
 providers = ctx.providers.flatten()
 ctx.add_basemap(ax, source='https://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png')
 
-plt.xlabel('Longitude', fontsize=12)
-plt.ylabel('Latitude', fontsize=12)
-plt.title('Shorelines from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5], fontsize=12)
+plt.xlabel('Longitude', fontsize=14)
+plt.ylabel('Latitude', fontsize=14)
+plt.title('Shorelines from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5], fontsize=16)
 plt.tight_layout()
 plt.savefig('output/shoreline/map/static/yearly_shoreline/shorelines_OSM.png', dpi=300)
 
@@ -387,9 +400,9 @@ union_shoreline.plot(ax=ax,
 # Add basemap
 ctx.add_basemap(ax, source=providers['CartoDB.Positron'])
 
-plt.xlabel('Longitude', fontsize=12)
-plt.ylabel('Latitude', fontsize=12)
-plt.title('Shorelines from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5], fontsize=12)
+plt.xlabel('Longitude', fontsize=14)
+plt.ylabel('Latitude', fontsize=14)
+plt.title('Shorelines from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5], fontsize=16)
 plt.tight_layout()
 plt.savefig('output/shoreline/map/static/yearly_shoreline/shorelines_Positron.png', dpi=300)
 
@@ -411,9 +424,9 @@ Union_shoreline.plot(ax=ax,
 # Add basemap
 ctx.add_basemap(ax, source=providers['CartoDB.DarkMatter'])
 
-plt.xlabel('Longitude', fontsize=12)
-plt.ylabel('Latitude', fontsize=12)
-plt.title('Shorelines from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5], fontsize=12)
+plt.xlabel('Longitude', fontsize=14)
+plt.ylabel('Latitude', fontsize=14)
+plt.title('Shorelines from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5], fontsize=16)
 plt.tight_layout()
 plt.savefig('output/shoreline/map/static/yearly_shoreline/shorelines_DarkMatter.png', dpi=300)
 
@@ -434,9 +447,9 @@ union_shoreline.plot(ax=ax,
 # Add basemap
 ctx.add_basemap(ax, source=providers['Esri.WorldImagery'])
 
-plt.xlabel('Longitude', fontsize=12)
-plt.ylabel('Latitude', fontsize=12)
-plt.title('Shorelines from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5], fontsize=12)
+plt.xlabel('Longitude', fontsize=14)
+plt.ylabel('Latitude', fontsize=14)
+plt.title('Shorelines from '+shoreline_fp[0][-9:-5]+' to '+shoreline_fp[-1][-9:-5], fontsize=16)
 plt.tight_layout()
 plt.savefig('output/shoreline/map/static/yearly_shoreline/shorelines_Esri.png', dpi=300)
 
