@@ -4,13 +4,6 @@ import math
 import folium
 from shapely.geometry import Polygon
 
-# ------ Landsat 8 ------ #
-
-# Applies scaling factors.
-def applyScaleFactorsL8(image):
-  opticalBands = image.select('SR_B.').multiply(0.0000275).add(-0.2)
-  thermalBands = image.select('ST_B.*').multiply(0.00341802).add(149.0)
-  return image.addBands(opticalBands, None, True).addBands(thermalBands, None, True)
 
 # Mask cloud function
 def maskCloudSR(image):
@@ -23,6 +16,12 @@ def maskCloudSR(image):
   mask = qa.bitwiseAnd(cloudShadowBitMask).eq(0).And(qa.bitwiseAnd(cloudsBitMask).eq(0))
   return image.updateMask(mask)
 
+# ------ Landsat 8 & 9 ------ #
+# Applies scaling factors.
+def applyScaleFactorsL8(image):
+  opticalBands = image.select('SR_B.').multiply(0.0000275).add(-0.2)
+  thermalBands = image.select('ST_B.*').multiply(0.00341802).add(149.0)
+  return image.addBands(opticalBands, None, True).addBands(thermalBands, None, True)
 
 # ------ Landsat 5 & 7 ------ #
 # Applies scaling factors.
@@ -36,7 +35,9 @@ def image_no_clouds(aoi, start_date, end_date):
   # importing image collection and filtering
   # Rescale and mask cloud
   if int(start_date[:4]) > 2014:
-    img_col = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2').filterDate(start_date, end_date)
+    l8_collection = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
+    l9_collection = ee.ImageCollection("LANDSAT/LC09/C02/T1_L2")
+    img_col = ee.ImageCollection(l8_collection.merge(l9_collection)).filterDate(start_date, end_date)
     rescale_mkCloud = img_col.map(applyScaleFactorsL8).map(maskCloudSR).median()
 
   if int(start_date[:4]) <= 2014:
