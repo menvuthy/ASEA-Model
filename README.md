@@ -1,4 +1,4 @@
-[![GitHub release](https://img.shields.io/github/release/kvos/CoastSat)]
+[![License: MIT license](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/menvuthy/ASEA-Model/blob/main/LICENSE)
 
 # ASEA-Model
 
