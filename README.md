@@ -1,3 +1,6 @@
+
+[![GitHub release](https://img.shields.io/github/v/release/menvuthy/ASEA-Model.svg)](https://github.com/menvuthy/ASEA-Model/releases)
+
 [![License: MIT license](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/menvuthy/ASEA-Model/blob/main/LICENSE)
 
 # ASEA-Model
