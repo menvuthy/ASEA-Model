@@ -21,8 +21,7 @@ method. By using ASEA model, several kinds of output will be produced in various
 in raster file (.tif) to shorelines in geojson file (.json) as well as the analysis results in static
 and interactive maps.
 
-![plot](img/diagram.png)
-
+<img src="img/diagram.png" width="128"/>
 
 ## Requirement
 To use ASEA model, Google Colaboratory and Google Earth Engine are required to implement
