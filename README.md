@@ -108,3 +108,50 @@ Execute the code below to:
 ```
 !python execute_1_download_satellite_image.py
 ```
+
+### 3.3 Extract shoreline
+
+Execute the code below to:
+
+- extract shorelines from all satellite images
+- create plots between satellite image and shoreline
+
+
+```
+!python execute_2_shoreline_extraction.py
+```
+
+Tips: Before continue to next step, please check and confirm if the extracted shoreline is acceptable. If not, feel free to manually modify it in QGIS, then reupload to drive.
+
+### 3.4 Calculate growth and retreat
+
+Execute the code below to:
+
+- calculate shoreline growth and retreat
+
+```
+!python execute_3_shoreline_analysis.py
+```
+
+### 3.5 Create maps of shorelines and shoreline changes
+
+Open `parameters.py` file:
+
+- Set the bin parameter for customed classification schemes
+- Create bins for total shoreline change and shoreline change rate per year
+
+Execute the code below to:
+
+- create static and interactive maps
+
+```
+!python execute_4_mapping_shoreline.py
+```
+
+## 4. Sample output
+
+After code execution, static and interactive maps are created and stored in output folder. Below figure shows 3 kinds of output in static maps produced by the model.
+
+<p float="left">
+  <img src="image/output-shoreline.png" width=100% />
+</p>
