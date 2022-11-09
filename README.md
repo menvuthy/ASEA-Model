@@ -96,7 +96,7 @@ Install environment by running the code below:
 !pip install -r requirements.txt
 ```
 
-### 1 Download
+### 1. Download
 
 Open `parameters.py` file:
 
@@ -113,7 +113,7 @@ Execute the code below to:
 !python execute_1_download_satellite_image.py
 ```
 
-### 2 Extract shoreline
+### 2. Extract shoreline
 
 Execute the code below to:
 
@@ -127,7 +127,7 @@ Execute the code below to:
 
 Tips: Before continue to next step, please check and confirm if the extracted shoreline is acceptable. If not, feel free to manually modify it in QGIS, then reupload to drive.
 
-### 3 Calculate growth and retreat
+### 3. Calculate growth and retreat
 
 Execute the code below to:
 
@@ -137,7 +137,7 @@ Execute the code below to:
 !python execute_3_shoreline_analysis.py
 ```
 
-### 4 Create maps of shorelines and shoreline changes
+### 4. Create maps of shorelines and shoreline changes
 
 Open `parameters.py` file:
 
