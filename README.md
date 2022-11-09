@@ -2,9 +2,6 @@
 [![GitHub release](https://img.shields.io/github/v/release/menvuthy/ASEA-Model.svg)](https://github.com/menvuthy/ASEA-Model/releases)
 [![License: MIT license](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/menvuthy/ASEA-Model/blob/main/LICENSE)
 
-:star: **Please put a Star on it, if you like my repository! Thank you**
-
-
 # ASEA-Model
 
 **Automated Shoreline Extraction and Analysis Model** known as **ASEA model** is a robust and
@@ -30,6 +27,7 @@ and interactive maps.
   <img src="image/image-1.gif" width=100% />
 </p>
 
+:star: **Please put a Star on it, if you like my repository! Thank you**
 
 ## Requirement
 To use ASEA model, Google Colaboratory and Google Earth Engine are required to implement
