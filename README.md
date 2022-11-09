@@ -1,3 +1,5 @@
+[![GitHub release](https://img.shields.io/github/release/kvos/CoastSat)]
+
 # ASEA-Model
 
 **Automated Shoreline Extraction and Analysis Model** known as **ASEA model** is a robust and
