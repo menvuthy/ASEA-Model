@@ -22,9 +22,7 @@ in raster file (.tif) to shorelines in geojson file (.json) as well as the analy
 and interactive maps.
 
 <p float="left">
-  <img src="img/shoreline.png" width="250" />
-  <img src="img/shoreline-total.png" width="250" /> 
-  <img src="img/shoreline-rpy.png" width="250" />
+  <img src="img/D'Habu land_shoreline.png" width=100% />
 </p>
 
 ## Requirement
