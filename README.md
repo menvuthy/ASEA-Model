@@ -27,6 +27,8 @@ and interactive maps.
   <img src="image/image-1.gif" width=100% />
 </p>
 
+:star: **Please put a Star on it, if you like the repository! Thank you** :star:
+
 ## Requirement
 To use ASEA model, Google Colaboratory and Google Earth Engine are required to implement
 the execution codes. GC and GEE are two completely different platforms. Google
