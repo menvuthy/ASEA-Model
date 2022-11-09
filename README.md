@@ -1,6 +1,23 @@
 # ASEA-Model
 
-**OSMnx** is a Python package that lets you download geospatial data from OpenStreetMap and model, project, visualize, and analyze real-world street networks and any other geospatial geometries. You can download and model walkable, drivable, or bikeable urban networks with a single line of Python code then easily analyze and visualize them. You can just as easily download and work with other infrastructure types, amenities/points of interest, building footprints, elevation data, street bearings/orientations, and speed/travel time.
+**Automated Shoreline Extraction and Analysis Model** known as **ASEA model** is a robust and
+user-friendly model capable of extracting the shoreline from Landsat satellite imagery at a
+high accuracy and calculating the shoreline change between the past and present condition.
+The model is fully operated in a cloud platform connecting to Google Earth Engine
+(GEE) so that the complicated environment setup is not needed in local computer to utilize
+this model. By giving the target area and date range as input information, the model will
+automatically collect all Landsat satellite images at the given area of interest (AOI) during
+high and low tide period, process them, and download the post-processed images directly
+from GEE to user’s Google drive. From post-processed images, the model analyzes the
+sub-pixel values of Near-Infrared Band and classify them into land and water area by using
+an unsupervised classification algorithm known as K-Means. The boundary dividing land
+and water area is determined as preliminary shoreline, which basically has stair-like shape.
+This shoreline is then converted to a smooth shoreline through shape-correction process in
+the model. The shape-corrected shoreline is treated as the main shoreline for calculating
+growth and retreat distance and rate per year between the past and present time. By using
+ASEA model, several kinds of output will be produced in various format ranging from images
+in raster file (.tif) to shorelines in geojson file (.json) as well as the analysis results in static
+and interactive maps.
 
 If you use OSMnx in your work, please cite the journal article.
 
