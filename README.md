@@ -2,7 +2,7 @@
 [![GitHub release](https://img.shields.io/github/v/release/menvuthy/ASEA-Model.svg)](https://github.com/menvuthy/ASEA-Model/releases)
 [![License: MIT license](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/menvuthy/ASEA-Model/blob/main/LICENSE)
 
-:star: **Please put a Star on it, if you like the repository! Thank you**
+:star: **Please put a Star on it, if you like my repository! Thank you**
 
 
 # ASEA-Model
