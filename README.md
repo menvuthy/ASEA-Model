@@ -163,3 +163,5 @@ After code execution, static and interactive maps are created and stored in outp
 ## User manual
 
 To learn more detail about this shoreline model, please read *User Manual* provided in `docs/user-manual.pdf`.
+
+---
