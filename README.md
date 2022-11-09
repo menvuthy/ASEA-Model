@@ -51,7 +51,7 @@ the use of ASEA model.
 
 ASEA model allows users to produce four main results of shoreline analysis through four executions (i.e. download, extraction, analysis, and mapping). The instruction on how to use ASEA model is described below:
 
-The model can be downloaded as zip file from GitHub repository.
+The model can be downloaded as zip file from this repository.
 After unzipping the file, upload it to Google Drive by just dragging and dropping to proper location as illustrated in below figure:
 
 <p float="left">
