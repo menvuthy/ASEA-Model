@@ -70,7 +70,7 @@ for m in range(len(Start_date)):
     green = normalized_rescale[3]
     blue = normalized_rescale[4]
 
-    # Create RGB and SNB composite
+    # Create SNB composite
     SNB = np.dstack((swir, nir, blue))
 
     # Separate water and non-water by K-Means
