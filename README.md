@@ -24,17 +24,17 @@ in raster file (.tif) to shorelines in geojson file (.json) as well as the analy
 and interactive maps.
 
 <p float="left">
-  <img src="image/shoreline.png" width=100% />
+  <img src="image/image-1.gif" width=100% />
 </p>
 
-## Requirement
+## 1. Requirement
 To use ASEA model, Google Colaboratory and Google Earth Engine are required to implement
 the execution codes. GC and GEE are two completely different platforms. Google
 Colab is a place where execution codes of ASEA model are executed, while GEE is a place
 where geometry of AOI is generated and also where all Landsat satellite imageries are stored
 and downloaded by the model for analysis.
 
-## Model structure
+## 2. Model structure
 ASEA is a model developed using Python programming language and mainly operated in
 Colab. It also can be run in local computer or other cloud platforms besides Colab; however,
 the environment setup might be different, and users have to take this into account and install
@@ -43,3 +43,68 @@ Colab because Colab has many built-in modules and simple authorization workflow 
 Google Earth Engine through Notebook Authenticator verification code which faciliates
 the use of ASEA model.
 
+## 3. Usage
+
+ASEA model allows users to produce four main results of shoreline analysis through four executions (i.e. download, extraction, analysis, and mapping). The instruction on how to use ASEA model is described below:
+
+The model can be downloaded as zip file from GitHub repository.
+After unzipping the file, upload it to Google Drive by just dragging and dropping to proper location as illustrated in below figure:
+
+<p float="left">
+  <img src="image/model-drive.png" width=100% />
+</p>
+
+Inside ASEAModel-kmeans folder, there are multiple files and folders. To start the model, double click on ASEAModel.ipynb or right click on it and choose “Open with Google Colaboratory”. After that, the interface of ASEA model in Colab will appear as shown in below figure:
+
+<p float="left">
+  <img src="image/model-interface.png" width=100% />
+</p>
+
+### 3.1 Getting started
+
+After opening ASEA model in Colab, it requires connection to Google Drive to access files and store output. There are a number of way you can connect Colab to drive; however, the model here will do so by mounting Google drive in the runtime’s virtual machine.
+
+Run the code below to mount drive:
+
+```
+from google.colab import drive
+drive.mount('/content/drive')
+```
+
+Copy path of ASEAModel-kmeans directory in your Google drive and replace path in the code below, then run the code:
+
+```
+cd /content/drive/MyDrive/Colab Notebooks/ASEAModel/ASEAModel-kmeans
+```
+
+Run the code below to authenticate Google Earth Engine:
+
+```
+!earthengine authenticate
+```
+
+You will be provided with a URL to get verification code. Follow their instruction to copy the code and paste it in the given box and press Enter.
+
+Install environment by running the code below:
+
+```
+!apt install libspatialindex-dev
+!pip install -r requirements.txt
+```
+
+### 3.2 Download
+
+Open `parameters.py` file:
+
+- Set area of interest by generating geometry from [Google Earth Engine](https://code.earthengine.google.com)
+- Set the date range
+
+*Check `docs/generate-geometry.gif` to see the tutorial on how to generate geometry.*
+
+Execute the code below to:
+
+- Pre-process and download Landsat image from Google Earth Engine
+
+```
+!python execute_1_download_satellite_image.py
+```
