@@ -22,7 +22,7 @@ in raster file (.tif) to shorelines in geojson file (.json) as well as the analy
 and interactive maps.
 
 <p float="left">
-  <img src="image/shoreline.png.png" width=100% />
+  <img src="image/shoreline.png" width=100% />
 </p>
 
 ## Requirement
