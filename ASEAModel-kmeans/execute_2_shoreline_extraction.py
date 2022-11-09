@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 from codes import shoreline, download, mapping
 from parameters import aoi, date
 
+
 # Create folder
 if not os.path.exists('output/landsat-image/3m-images'):
   os.makedirs('output/landsat-image/3m-images')
@@ -70,10 +71,10 @@ for m in range(len(Start_date)):
     blue = normalized_rescale[4]
 
     # Create RGB and SNB composite
-    RGB = np.dstack((red, green, blue))
     SNB = np.dstack((swir, nir, blue))
 
     # Separate water and non-water by K-Means
+    # Input_DF = pd.DataFrame({'SWIR': swir.reshape(-1)})
     Input_DF = pd.DataFrame({'NIR': nir.reshape(-1)})
 
     # Set X as input feature data
@@ -153,18 +154,14 @@ for m in range(len(Start_date)):
     outfp = 'output/shoreline/geojson/shoreline_'+start_date[:4]+'.json'
     geo_shoreline.to_file(outfp, driver='GeoJSON')
 
-  # Create plot
-  fig, (ax1, ax2, ax3, ax4) = plt.subplots(1,4, figsize=(20,7))
-  show(RGB.transpose(2, 0, 1), ax=ax1, transform=transform, title='True color')
-  show(RGB.transpose(2, 0, 1), ax=ax2, transform=transform, title='True color')
-  ax2.set_title('Shoreline', fontweight='bold')
-  geo_shoreline.plot(ax=ax2, facecolor='None', edgecolor='yellow', linewidth=1.2)
-  show(SNB.transpose(2, 0, 1), ax=ax3, cmap='gray', transform=transform, title='False color')
-  show(SNB.transpose(2, 0, 1), ax=ax4, cmap='gray', transform=transform)
-  geo_shoreline.plot(ax=ax4, facecolor='None', edgecolor='white', linewidth=1.2)
-  ax4.set_title('Shoreline', fontweight='bold')
-  plt.tight_layout()
-  plt.savefig('output/shoreline/plot/plot_'+start_date[:4]+'.png', dpi=300)
+    # Create plot
+    fig, (ax1, ax2) = plt.subplots(1,2, figsize=(20,7))
+    show(SNB.transpose(2, 0, 1), ax=ax1, cmap='gray', transform=transform, title='False color')
+    show(SNB.transpose(2, 0, 1), ax=ax2, cmap='gray', transform=transform)
+    geo_shoreline.plot(ax=ax2, facecolor='None', edgecolor='white', linewidth=1.2)
+    ax2.set_title('Shoreline', fontweight='bold')
+    plt.tight_layout()
+    plt.savefig('output/shoreline/plot/plot_'+start_date[:4]+'.png', dpi=300)
 
 #---------------------------------------------------------------------
 print('Shoreline extraction is finished!')

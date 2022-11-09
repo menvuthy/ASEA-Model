@@ -12,6 +12,9 @@ from shapely.ops import nearest_points, unary_union
 
 # Function to normalize the grid values
 def normalize(band):
+  # We need to change that behaviour because we have a lot of 0 values in our data.
+  np.seterr(divide='ignore', invalid='ignore')
+  
   # Calculate min and max of band
   band_max, band_min = np.nanmax(band), np.nanmin(band)
 
