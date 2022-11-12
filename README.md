@@ -27,11 +27,9 @@ and interactive maps.
   <img src="image/image-1.gif" width=100% />
 </p>
 
-:star: **Please put a Star on it, if you like my repository! Thank you**
-
 :blue_book: [Download User Manual](https://github.com/menvuthy/ASEA-Model/raw/main/ASEAModel-kmeans/docs/user-manual.pdf)
  
-
+:star: **Please put a Star on it, if you like my repository! Thank you**
 
 ## Requirement
 To use ASEA model, Google Colaboratory and Google Earth Engine are required to implement
