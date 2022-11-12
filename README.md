@@ -29,6 +29,10 @@ and interactive maps.
 
 :star: **Please put a Star on it, if you like my repository! Thank you**
 
+:blue_book: [Download User Manual](https://github.com/menvuthy/ASEA-Model/raw/main/ASEAModel-kmeans/docs/user-manual.pdf)
+ 
+
+
 ## Requirement
 To use ASEA model, Google Colaboratory and Google Earth Engine are required to implement
 the execution codes. GC and GEE are two completely different platforms. Google
