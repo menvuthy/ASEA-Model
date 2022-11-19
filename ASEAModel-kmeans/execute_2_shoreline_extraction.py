@@ -42,6 +42,7 @@ for m in range(len(Start_date)):
     print('Warning: The image in '+start_date[:4]+' is empty, so shoreline cannot be extracted for this year.')
 
   else:
+    print('Extracting shoreline in '+start_date[:4]+'...')
     # Resample data to target shape
     rescale_image, transform = shoreline.resampling(image=Image, scale_factor=10)
     normalized_rescale = shoreline.normalize(rescale_image)
@@ -162,6 +163,6 @@ for m in range(len(Start_date)):
     ax2.set_title('Shoreline', fontweight='bold')
     plt.tight_layout()
     plt.savefig('output/shoreline/plot/plot_'+start_date[:4]+'.png', dpi=300)
-
+    print('Shoreline in '+start_date[:4]+' is extracted.')
 #---------------------------------------------------------------------
 print('Shoreline extraction is finished!')
