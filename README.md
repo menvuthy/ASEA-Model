@@ -4,7 +4,7 @@
 
 # ASEA-Model
 
-**Automated Shoreline Extraction and Analysis Model** known as **ASEA model** is a robust and
+**Automated Shoreline Extraction and Analysis Model** known as **ASEA model** is a rapid and
 user-friendly model capable of extracting the shoreline from Landsat satellite imagery at a
 high accuracy and calculating the shoreline change between the past and present condition.
 The model is fully operated in a cloud platform connecting to Google Earth Engine
